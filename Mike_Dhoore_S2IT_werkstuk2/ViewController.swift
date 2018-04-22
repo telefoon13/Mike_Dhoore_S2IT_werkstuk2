@@ -12,7 +12,30 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let url = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=20")
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            if error != nil
+            {
+                print ("ERROR")
+            }
+            else
+            {
+                if let content = data
+                {
+                    do
+                    {
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        print (myJson)
+                    }
+                    catch
+                    {
+                        //Catch error here
+                    }
+                }
+            }
+        }
+        task.resume()
     }
 
     override func didReceiveMemoryWarning() {
