@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=20")
+        let url = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=5")
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error != nil
             {
@@ -25,11 +25,18 @@ class ViewController: UIViewController {
                 {
                     do
                     {
-                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: [])  as? [String: Any]
                         //print (myJson)
-                        if let records = myJson["records"] as? AnyObject
+                        if let records = myJson?["records"] as? [[String : Any]]
                         {
                             //print (records)
+                            for record in records
+                            {
+                                if let fields = record["fields"] as? NSDictionary
+                                {
+                                    print(fields)
+                                }
+                            }
                         }
                     }
                     catch
