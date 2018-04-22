@@ -26,7 +26,11 @@ class ViewController: UIViewController {
                     do
                     {
                         let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        print (myJson)
+                        //print (myJson)
+                        if let records = myJson["records"] as? AnyObject
+                        {
+                            //print (records)
+                        }
                     }
                     catch
                     {
