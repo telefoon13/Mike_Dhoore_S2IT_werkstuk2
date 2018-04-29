@@ -27,27 +27,28 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     //Refresh button
     @IBAction func button(_ sender: Any) {
-        getJSONtoCore()
+        refresh()
         //print("op knop geduwd")
     }
 
-
-    
     override func viewDidLoad() {
         //SUPER
         super.viewDidLoad()
         
         getJSONtoCore()
-        
-
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
+    //Refresh function
+    func refresh(){
+        getJSONtoCore()
+    }
     
-    func getJSONtoCore() {
-        //First clear the prevous data
-        clearData()
-        
+    func setLastDate(){
         //Set last refresh date and time
         //Source : https://ios8programminginswift.wordpress.com/2014/08/16/get-current-date-and-time-quickcode/
         let todaysDate:Date = Date()
@@ -55,6 +56,16 @@ class ViewController: UIViewController {
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
         let DateInFormat:String = dateFormatter.string(from: todaysDate)
         label.text = DateInFormat
+    }
+    
+    //Get the data from JSON and put in core data
+    func getJSONtoCore() {
+        
+        //First clear the prevous data
+        clearData()
+        
+        //Set the date and time from last refresh
+        setLastDate()
         
         //Get new batch of data
         let url = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=10")
@@ -69,7 +80,6 @@ class ViewController: UIViewController {
                 {
                     do
                     {
-                        
                         let myJson = try JSONSerialization.jsonObject(with: content, options: []) as? [String: Any]
                         //print (myJson)
                         if let records = myJson?["records"] as? [[String:Any]]
@@ -102,9 +112,7 @@ class ViewController: UIViewController {
                                     boom.status = (fields["status"] as? String)
                                     boom.straat = (fields["straat"] as? String)
                                     
-                                
                                     self.appDelegate.saveContext()
-                                    
                                 }
                             }
                         }
@@ -115,14 +123,10 @@ class ViewController: UIViewController {
                     }
                 }
             }
+            //Show the data
             self.show()
         }
         task.resume()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     //Funtion to show everything
