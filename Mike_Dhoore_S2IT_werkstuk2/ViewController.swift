@@ -13,6 +13,7 @@
 
 import UIKit
 import CoreData
+import MapKit
 
 class ViewController: UIViewController {
     
@@ -20,6 +21,17 @@ class ViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     //Make Context for CoreData from AppDelegate
     let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    //The map
+    @IBOutlet weak var map: MKMapView!
+    //Last refresh label
+    @IBOutlet weak var label: UILabel!
+    //Refresh button
+    @IBAction func button(_ sender: Any) {
+        getJSONtoCore()
+        //print("op knop geduwd")
+    }
+
+
     
     override func viewDidLoad() {
         //SUPER
@@ -27,14 +39,25 @@ class ViewController: UIViewController {
         
         getJSONtoCore()
         
+
     }
+    
+    
     
     func getJSONtoCore() {
         //First clear the prevous data
         clearData()
         
+        //Set last refresh date and time
+        //Source : https://ios8programminginswift.wordpress.com/2014/08/16/get-current-date-and-time-quickcode/
+        let todaysDate:Date = Date()
+        let dateFormatter:DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
+        let DateInFormat:String = dateFormatter.string(from: todaysDate)
+        label.text = DateInFormat
+        
         //Get new batch of data
-        let url = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=50")
+        let url = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=10")
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error != nil
             {
@@ -110,7 +133,17 @@ class ViewController: UIViewController {
             var aantal = 0
             for elkeBoom in opgehaaldeBomen
             {
+                print(elkeBoom.beplanting)
+                print(elkeBoom.diameter_van_de_kroon)
+                print(elkeBoom.gemeente)
+                print(elkeBoom.hoogte)
+                print(elkeBoom.id)
+                print(elkeBoom.omtrek)
+                print(elkeBoom.positie)
+                print(elkeBoom.soort)
+                print(elkeBoom.status)
                 print(elkeBoom.straat)
+                print("------------------------")
                 aantal += 1
             }
             //print(opgehaaldeBomen[2].straat!)

@@ -1,26 +1,103 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0tY-wi-nAn">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Alle bomen-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Mike_Dhoore_S2IT_werkstuk2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Laatst bijgewerkt op :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4R6-4j-NW2">
+                                <rect key="frame" x="0.0" y="527" width="173" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="173" id="kXg-Ap-v3c"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="29/04/2018  17:04" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuC-df-l87">
+                                <rect key="frame" x="162" y="527" width="158" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="158" id="Rb3-94-nKX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FIR-6y-50p">
+                                <rect key="frame" x="100" y="538" width="120" height="30"/>
+                                <state key="normal" title="Herlaad gegvens"/>
+                                <connections>
+                                    <action selector="button:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ph2-vr-6ev"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4QL-Lr-7gK">
+                                <rect key="frame" x="0.0" y="64" width="320" height="458"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4QL-Lr-7gK" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="6VR-q4-ZHa"/>
+                            <constraint firstItem="FIR-6y-50p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="84" id="Gpy-TY-71x"/>
+                            <constraint firstItem="4QL-Lr-7gK" firstAttribute="centerX" secondItem="FIR-6y-50p" secondAttribute="centerX" id="Lji-14-Ibb"/>
+                            <constraint firstItem="4QL-Lr-7gK" firstAttribute="trailing" secondItem="TuC-df-l87" secondAttribute="trailing" id="MoA-mb-EOr"/>
+                            <constraint firstAttribute="trailing" secondItem="4QL-Lr-7gK" secondAttribute="trailing" id="Nxc-xF-VCW"/>
+                            <constraint firstItem="FIR-6y-50p" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="QWu-GG-qBt"/>
+                            <constraint firstItem="4R6-4j-NW2" firstAttribute="firstBaseline" secondItem="TuC-df-l87" secondAttribute="firstBaseline" id="WUJ-iO-zAJ"/>
+                            <constraint firstAttribute="bottom" secondItem="4R6-4j-NW2" secondAttribute="bottom" constant="20" symbolic="YES" id="arW-A8-5dt"/>
+                            <constraint firstItem="4QL-Lr-7gK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dtH-wB-vSC"/>
+                            <constraint firstItem="4R6-4j-NW2" firstAttribute="top" secondItem="4QL-Lr-7gK" secondAttribute="bottom" constant="5" id="faU-vc-wkW"/>
+                            <constraint firstItem="FIR-6y-50p" firstAttribute="top" secondItem="4QL-Lr-7gK" secondAttribute="bottom" constant="16" id="mZn-hC-oy0"/>
+                            <constraint firstItem="4QL-Lr-7gK" firstAttribute="leading" secondItem="4R6-4j-NW2" secondAttribute="leading" id="qXW-SZ-cLI"/>
+                            <constraint firstItem="4R6-4j-NW2" firstAttribute="baseline" secondItem="TuC-df-l87" secondAttribute="baseline" id="rog-xA-mQx"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Alle bomen" id="TBU-dP-Z5p">
+                        <barButtonItem key="backBarButtonItem" title="Terug" id="GFa-S7-Old"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="label" destination="TuC-df-l87" id="XKm-u6-dUp"/>
+                        <outlet property="map" destination="4QL-Lr-7gK" id="1d6-wS-GVL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1055.625" y="123.59154929577466"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="a8b-Gs-XKh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0tY-wi-nAn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P30-hq-Qvg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="f7O-BG-Kmk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vCU-qU-1LF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="168.80000000000001" y="777.66116941529242"/>
         </scene>
     </scenes>
 </document>
