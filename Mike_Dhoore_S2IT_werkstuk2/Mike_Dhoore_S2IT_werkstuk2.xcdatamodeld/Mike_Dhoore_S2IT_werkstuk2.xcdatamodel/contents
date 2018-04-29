@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G1217" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Bomen" representedClassName=".Bomen" syncable="YES" codeGenerationType="class">
+    <entity name="Boom" representedClassName=".Boom" syncable="YES" codeGenerationType="class">
         <attribute name="beplanting" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="diameter_van_de_kroon" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="gemeente" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,6 +13,6 @@
         <attribute name="straat" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bomen" positionX="-63" positionY="-18" width="128" height="195"/>
+        <element name="Boom" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>
