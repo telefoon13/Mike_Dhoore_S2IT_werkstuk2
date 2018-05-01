@@ -161,8 +161,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         var opgehaaldeBomen:[Boom] = []
         do {
             opgehaaldeBomen = try self.managedContext.fetch(Boom.fetchRequest())
-            var aantal = 0
-            var aantalAdres = 0
             for elkeBoom in opgehaaldeBomen
             {
                 /*print(elkeBoom.beplanting)
@@ -176,8 +174,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                 print(elkeBoom.status)
                 print(elkeBoom.straat)
                 print("------------------------")*/
-                aantal += 1
-                
                 if elkeBoom.straat != nil {
                     //Convert adress to location
                     //Source :https://stackoverflow.com/questions/42279252/convert-address-to-coordinates-swift
@@ -185,7 +181,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                     let address = elkeBoom.straat! + elkeBoom.gemeente!
                     geocoder.geocodeAddressString(address, completionHandler: {(placemarks, error) -> Void in
                         if((error) != nil){
-                            print("Error", error ?? "")
+                            print("Error(Locatie kan niet bepaald worden)", error ?? "")
                         }
                         if let placemark = placemarks?.first {
                             let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
@@ -198,12 +194,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                             //Add anno on map
                             self.map.addAnnotation(anno1)
                         }
-                        aantalAdres += 1
                     })
                 }
                 
             }
-            print ("Er zijn total " + String(aantal) + " bomen in de db waarvan " + String(aantalAdres) + " met een adres endus een pin")
         } catch {
             fatalError("Failed to fetch : \(error)")
         }

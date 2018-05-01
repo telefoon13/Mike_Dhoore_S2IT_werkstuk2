@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F0BEC572095F54500A15723 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F0BEC562095F54500A15723 /* MapKit.framework */; };
+		3F840ADB2097375400236A1D /* BoomDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F840ADA2097375400236A1D /* BoomDetail.swift */; };
 		3FD8D81B208CACCB008A7C97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8D81A208CACCB008A7C97 /* AppDelegate.swift */; };
 		3FD8D81D208CACCB008A7C97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8D81C208CACCB008A7C97 /* ViewController.swift */; };
 		3FD8D820208CACCB008A7C97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD8D81E208CACCB008A7C97 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		3F0BEC562095F54500A15723 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3F840ADA2097375400236A1D /* BoomDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomDetail.swift; sourceTree = "<group>"; };
 		3FD8D817208CACCB008A7C97 /* Mike_Dhoore_S2IT_werkstuk2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mike_Dhoore_S2IT_werkstuk2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD8D81A208CACCB008A7C97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD8D81C208CACCB008A7C97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			children = (
 				3FD8D81A208CACCB008A7C97 /* AppDelegate.swift */,
 				3FD8D81C208CACCB008A7C97 /* ViewController.swift */,
+				3F840ADA2097375400236A1D /* BoomDetail.swift */,
 				3FD8D81E208CACCB008A7C97 /* Main.storyboard */,
 				3FD8D824208CACCB008A7C97 /* Assets.xcassets */,
 				3FD8D826208CACCB008A7C97 /* LaunchScreen.storyboard */,
@@ -159,6 +162,7 @@
 				3FD8D823208CACCB008A7C97 /* Mike_Dhoore_S2IT_werkstuk2.xcdatamodeld in Sources */,
 				3FD8D81D208CACCB008A7C97 /* ViewController.swift in Sources */,
 				3FD8D81B208CACCB008A7C97 /* AppDelegate.swift in Sources */,
+				3F840ADB2097375400236A1D /* BoomDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
