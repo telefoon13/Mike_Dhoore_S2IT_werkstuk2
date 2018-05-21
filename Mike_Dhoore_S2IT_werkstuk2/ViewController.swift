@@ -16,7 +16,7 @@ import CoreData
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     //make appDelegate
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -38,6 +38,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         //SUPER
         super.viewDidLoad()
         
+        self.map.delegate = self
         
         //Set map and location
         //Bron : https://www.youtube.com/watch?v=UyiuX8jULF4
@@ -95,7 +96,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         setLastDate()
         
         //Get new batch of data
-        let url = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=20")
+        let url = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=50")
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error != nil
             {
@@ -186,11 +187,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
                         if let placemark = placemarks?.first {
                             let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
                             //Annotation
-                            let anno1 = MKPointAnnotation()
+                            let anno1 = BoomPin()
                             //info van de Annotation
                             anno1.coordinate = coordinates
                             anno1.title = elkeBoom.soort
-                            //anno1.subtitle = "theSubtitle"
+                            anno1.boom = elkeBoom
+                            //Bron :https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
+                            anno1.image = "BoomPin"
+                            anno1.subtitle = "theSubtitle"
                             //Add anno on map
                             self.map.addAnnotation(anno1)
                         }
@@ -200,6 +204,60 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
         } catch {
             fatalError("Failed to fetch : \(error)")
+        }
+    }
+    
+    //Add Info button and custom image to annotations
+    //Bron : https://stackoverflow.com/questions/40478120/mkannotationview-swift-adding-info-button
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
+    {
+        guard !(annotation is MKUserLocation) else {
+            return nil
+        }
+        
+        let annotationIdentifier = "Identifier"
+        var annotationView: MKAnnotationView?
+        if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: annotationIdentifier) {
+            annotationView = dequeuedAnnotationView
+            annotationView?.annotation = annotation
+        }
+        else {
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationIdentifier)
+            annotationView?.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+        
+        if let annotationView = annotationView {
+            annotationView.canShowCallout = true
+            annotationView.image = UIImage(named: "smallTree")
+        }
+        return annotationView
+        /*
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            //pinView!.animatesDrop = true
+            pinView!.image = UIImage(named: "BoomPin")
+            let calloutButton = UIButton(type: .detailDisclosure)
+            pinView!.rightCalloutAccessoryView = calloutButton
+            pinView!.sizeToFit()
+        }
+        else {
+            pinView!.annotation = annotation
+        }
+        
+        
+        return pinView
+        */
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            
+            print(view.annotation?.title)
         }
     }
 
