@@ -9,11 +9,17 @@
 import UIKit
 
 class BoomDetail: UIViewController {
+    
+    var test:String?
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print("LOADED")
+        print(test)
     }
 
     override func didReceiveMemoryWarning() {

@@ -260,11 +260,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         */
     }
     
+    //What happens when the I button is pushed
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             
             print(view.annotation?.title)
+            performSegue(withIdentifier: "toDetail", sender: view)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toDetail"){
+            if let nextVC = segue.destination as? BoomDetail{
+                let test = "OK?"
+                nextVC.test = test
+            }
+        }
+        
     }
 
     //Function to clear the data from the database
