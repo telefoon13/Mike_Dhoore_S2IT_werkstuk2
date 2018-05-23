@@ -33,6 +33,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     //Location manager
     let manager = CLLocationManager()
+    //Selected tree
+    var geselecteerdeBoom:BoomPin?
 
     override func viewDidLoad() {
         //SUPER
@@ -264,19 +266,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             
-            print(view.annotation?.title)
+            //print(view.annotation?.title)
             performSegue(withIdentifier: "toDetail", sender: view)
         }
     }
     
+    //preform segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toDetail"){
             if let nextVC = segue.destination as? BoomDetail{
-                let test = "OK?"
-                nextVC.test = test
+                //let test = "OK?"
+                nextVC.boom = geselecteerdeBoom?.boom
             }
         }
         
+    }
+    
+    //Get the selected annotation
+    //Bron : https://stackoverflow.com/questions/39206418/how-can-i-detect-which-annotation-was-selected-in-mapview
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        self.geselecteerdeBoom = view.annotation as? BoomPin
     }
 
     //Function to clear the data from the database

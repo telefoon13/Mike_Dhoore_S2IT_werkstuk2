@@ -240,6 +240,10 @@
                     <navigationItem key="navigationItem" title="Boom detail" id="z0G-MY-UTv">
                         <barButtonItem key="backBarButtonItem" title="Terug" id="DTq-0L-HhZ"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="boomIdLbl" destination="cu8-ux-I3X" id="dl8-Sj-4OZ"/>
+                        <outlet property="boomSoortLbl" destination="yVL-ua-H1D" id="Q0D-Rm-MVb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YDx-Li-Qxw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

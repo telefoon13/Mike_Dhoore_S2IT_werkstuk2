@@ -10,16 +10,17 @@ import UIKit
 
 class BoomDetail: UIViewController {
     
-    var test:String?
+    var boom:Boom?
     
+    @IBOutlet weak var boomIdLbl: UILabel!
+    @IBOutlet weak var boomSoortLbl: UILabel!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        print("LOADED")
-        print(test)
+        boomIdLbl.text = boom?.id.description
+        boomSoortLbl.text = boom?.soort
     }
 
     override func didReceiveMemoryWarning() {
