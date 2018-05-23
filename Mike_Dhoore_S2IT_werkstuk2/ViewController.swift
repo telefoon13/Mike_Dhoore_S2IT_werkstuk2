@@ -190,11 +190,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                             let anno1 = BoomPin()
                             //info van de Annotation
                             anno1.coordinate = coordinates
-                            anno1.title = elkeBoom.soort
+                            var splitSoort = elkeBoom.soort?.components(separatedBy: "\n")
+                            anno1.title = splitSoort?[0]
+                            if ((splitSoort?.count)! > 1){
+                                anno1.subtitle = splitSoort?[1]
+                            }
+                            
                             anno1.boom = elkeBoom
                             //Bron :https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
                             anno1.image = "BoomPin"
-                            anno1.subtitle = "theSubtitle"
+                            
                             //Add anno on map
                             self.map.addAnnotation(anno1)
                         }
@@ -209,6 +214,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     //Add Info button and custom image to annotations
     //Bron : https://stackoverflow.com/questions/40478120/mkannotationview-swift-adding-info-button
+    //Bron : https://stackoverflow.com/questions/41800302/how-to-set-custom-pin-image-in-mapview-swift-ios
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
     {
         guard !(annotation is MKUserLocation) else {
