@@ -107,7 +107,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         setLastDate()
         
         //Get new batch of data
-        let url = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=200")
+        let url = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=20")
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error != nil
             {
