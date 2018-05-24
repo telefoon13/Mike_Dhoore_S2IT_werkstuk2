@@ -14,13 +14,90 @@ class BoomDetail: UIViewController {
     
     @IBOutlet weak var boomIdLbl: UILabel!
     @IBOutlet weak var boomSoortLbl: UILabel!
+    @IBOutlet weak var boomAdresLbl: UILabel!
+    @IBOutlet weak var boomLandschapLbl: UILabel!
+    @IBOutlet weak var boomPositieLbl: UILabel!
+    @IBOutlet weak var boomBeplantingLbl: UILabel!
+    @IBOutlet weak var boomStatusLbl: UILabel!
+    @IBOutlet weak var boomOmtrekLbl: UILabel!
+    @IBOutlet weak var boomHoogteLbl: UILabel!
+    @IBOutlet weak var boomDiameterLbl: UILabel!
+    let isLeeg:String = "Onbekend"
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        boomIdLbl.text = boom?.id.description
-        boomSoortLbl.text = boom?.soort
+        if boom?.id != nil
+        {
+            boomIdLbl.text = boom?.id.description
+        } else {
+            boomIdLbl.text = isLeeg
+        }
+        
+        if boom?.soort != nil
+        {
+            boomSoortLbl.text = boom?.soort
+        } else {
+            boomSoortLbl.text = isLeeg
+        }
+        
+        if boom?.straat != nil && boom?.gemeente != nil
+        {
+            boomAdresLbl.text = (boom?.straat)! + " " + (boom?.gemeente)!
+        } else {
+            boomAdresLbl.text = isLeeg
+        }
+        
+        if boom?.landschap != nil
+        {
+            boomLandschapLbl.text = boom?.landschap
+        } else {
+            boomLandschapLbl.text = isLeeg
+        }
+        
+        if boom?.positie != nil
+        {
+            boomPositieLbl.text = boom?.positie
+        } else {
+            boomPositieLbl.text = isLeeg
+        }
+        
+        if boom?.beplanting != nil
+        {
+            boomBeplantingLbl.text = boom?.beplanting
+        } else {
+            boomBeplantingLbl.text = isLeeg
+        }
+        
+        if boom?.status != nil
+        {
+            boomStatusLbl.text = boom?.status
+        } else {
+            boomStatusLbl.text = isLeeg
+        }
+        
+        if boom?.omtrek != nil
+        {
+            boomOmtrekLbl.text = (boom?.omtrek.description)! + " m"
+        } else {
+            boomOmtrekLbl.text = isLeeg
+        }
+        
+        if boom?.hoogte != nil
+        {
+            boomHoogteLbl.text = (boom?.hoogte)! + " m"
+        } else {
+            boomHoogteLbl.text = isLeeg
+        }
+        
+        if boom?.diameter_van_de_kroon != nil
+        {
+            boomDiameterLbl.text = (boom?.diameter_van_de_kroon.description)! + " m"
+        } else {
+            boomDiameterLbl.text = isLeeg
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

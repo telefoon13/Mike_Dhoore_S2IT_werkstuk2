@@ -26,9 +26,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var map: MKMapView!
     //Last refresh label
     @IBOutlet weak var label: UILabel!
+    //Last time refreshed
+    var lastRefresh:Date?
     //Refresh button
     @IBAction func button(_ sender: Any) {
-        refresh()
+        //Bron : https://stackoverflow.com/questions/39018335/swift-3-comparing-date-objects
+        let nuMin10 = Date().addingTimeInterval(-10)
+        if (lastRefresh! < nuMin10){
+            refresh()
+        }
+        
         //print("op knop geduwd")
     }
     //Location manager
@@ -81,10 +88,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func setLastDate(){
         //Set last refresh date and time
         //Source : https://ios8programminginswift.wordpress.com/2014/08/16/get-current-date-and-time-quickcode/
-        let todaysDate:Date = Date()
+        lastRefresh = Date()
         let dateFormatter:DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
-        let DateInFormat:String = dateFormatter.string(from: todaysDate)
+        let DateInFormat:String = dateFormatter.string(from: lastRefresh!)
         label.text = DateInFormat
     }
     
@@ -141,6 +148,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                                     boom.soort = (fields["soort"] as? String)
                                     boom.status = (fields["status"] as? String)
                                     boom.straat = (fields["straat"] as? String)
+                                    boom.landschap = (fields["landschap"] as? String)
                                     
                                     self.appDelegate.saveContext()
                                 }
