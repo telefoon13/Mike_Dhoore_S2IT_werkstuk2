@@ -31,10 +31,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     //Refresh button
     @IBAction func button(_ sender: Any) {
         //Bron : https://stackoverflow.com/questions/39018335/swift-3-comparing-date-objects
-        let nuMin10 = Date().addingTimeInterval(-10)
-        if (lastRefresh! < nuMin10){
+        //let nuMin = Date().addingTimeInterval(-60)
+        //if (lastRefresh! < nuMin){
             refresh()
-        }
+        //} else {
+            //popup tonen
+        //}
         
         //print("op knop geduwd")
     }
@@ -105,7 +107,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         setLastDate()
         
         //Get new batch of data
-        let url = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=50")
+        let url = URL(string: "https://opendata.brussel.be/api/records/1.0/search/?dataset=opmerkelijke-bomen&rows=200")
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if error != nil
             {
@@ -152,12 +154,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                                     
                                     self.appDelegate.saveContext()
                                 }
+                                
                             }
                         }
                     }
                     catch
                     {
-                        //Catch error here
+                        print ("Catch error here")
                     }
                 }
             }
