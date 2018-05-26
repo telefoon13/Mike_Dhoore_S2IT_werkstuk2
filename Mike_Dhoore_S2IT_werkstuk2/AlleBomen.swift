@@ -5,18 +5,13 @@
 //  Created by student on 22/04/18.
 //  Copyright © 2018 Mike Dhoore. All rights reserved.
 //
-/*
- Gebruikte bronnen
- https://www.youtube.com/channel/UC-d1NWv5IWtIkfH47ux4dWA/videos
- https://stackoverflow.com/questions/37956720/how-to-create-managedobjectcontext-using-swift-3-in-xcode-8
- */
 
 import UIKit
 import CoreData
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class AlleBomen: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     //make appDelegate
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -58,6 +53,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     //Selected tree
     var geselecteerdeBoom:BoomPin?
 
+    
+    //Functie die aangeroepen word wanneer de view geladen is
     override func viewDidLoad() {
         //SUPER
         super.viewDidLoad()
@@ -86,11 +83,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         getJSONtoCore()
     }
     
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //Functie om min locatie te tonen en te centreren
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         //Bron : https://www.youtube.com/watch?v=UyiuX8jULF4
         let location = locations[0]
@@ -106,11 +107,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         self.map.showsUserLocation = true
     }
     
+    
+    
     //Refresh function
     func refresh(){
         getJSONtoCore()
     }
     
+    
+    
+    //Functie om de refresh datum te generenen en te tonen
     func setLastDate(){
         //Set last refresh date and time
         //Source : https://ios8programminginswift.wordpress.com/2014/08/16/get-current-date-and-time-quickcode/
@@ -121,7 +127,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         label.text = DateInFormat
     }
     
-    //Get the data from JSON and put in core data
+    
+    
+    
+    //Functie om de JSON op te halen en deze in de Core Date te steken
     func getJSONtoCore() {
         
         //Disable refresh button
@@ -202,24 +211,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         task.resume()
     }
     
-    //Funtion to show everything
+    
+    
+    //Functie om alles op UI te tonen (Adres omzetten naar cordinaat en pinnen toevoegen)
     func show() {
         var opgehaaldeBomen:[Boom] = []
         do {
             opgehaaldeBomen = try self.managedContext.fetch(Boom.fetchRequest())
             for elkeBoom in opgehaaldeBomen
             {
-                /*print(elkeBoom.beplanting)
-                print(elkeBoom.diameter_van_de_kroon)
-                print(elkeBoom.gemeente)
-                print(elkeBoom.hoogte)
-                print(elkeBoom.id)
-                print(elkeBoom.omtrek)
-                print(elkeBoom.positie)
-                print(elkeBoom.soort)
-                print(elkeBoom.status)
-                print(elkeBoom.straat)
-                print("------------------------")*/
                 if elkeBoom.straat != nil && elkeBoom.gemeente != nil {
                     //Convert adress to location
                     //Source :https://stackoverflow.com/questions/42279252/convert-address-to-coordinates-swift
@@ -259,7 +259,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
     }
     
-    //Add Info button and custom image to annotations
+    
+    
+    //Functie om "I" knop aan anotatie toe tevoegen om op te klikken + custom image te gebruiken ipv standaard pin
     //Bron : https://stackoverflow.com/questions/40478120/mkannotationview-swift-adding-info-button
     //Bron : https://stackoverflow.com/questions/41800302/how-to-set-custom-pin-image-in-mapview-swift-ios
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?
@@ -284,30 +286,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             annotationView.image = UIImage(named: "smallTree")
         }
         return annotationView
-        /*
-        
-        let reuseId = "pin"
-        
-        var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
-        if pinView == nil {
-            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
-            pinView!.canShowCallout = true
-            //pinView!.animatesDrop = true
-            pinView!.image = UIImage(named: "BoomPin")
-            let calloutButton = UIButton(type: .detailDisclosure)
-            pinView!.rightCalloutAccessoryView = calloutButton
-            pinView!.sizeToFit()
-        }
-        else {
-            pinView!.annotation = annotation
-        }
-        
-        
-        return pinView
-        */
     }
     
-    //What happens when the I button is pushed
+    
+    
+    //Functie die de segue aanroept wanneer er op een "I" knop word geduwd van een annotatie
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             
@@ -316,7 +299,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
     }
     
-    //preform segue
+    
+    
+    
+    //Functie om de segue uit te voeren
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toDetail"){
             if let nextVC = segue.destination as? BoomDetail{
@@ -327,13 +313,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
     }
     
-    //Get the selected annotation
+    
+    
+    
+    //Functie om de gegevens te krijgen van de geslecteerde annotatie
     //Bron : https://stackoverflow.com/questions/39206418/how-can-i-detect-which-annotation-was-selected-in-mapview
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         self.geselecteerdeBoom = view.annotation as? BoomPin
     }
 
-    //Function to clear the data from the database
+    
+    
+    //Functie om de coredata leeg te maken en alle annotaties te verwijderen
     func clearData() {
         //Source https://cocoacasts.com/how-to-delete-every-record-of-a-core-data-entity
         // Create Fetch Request

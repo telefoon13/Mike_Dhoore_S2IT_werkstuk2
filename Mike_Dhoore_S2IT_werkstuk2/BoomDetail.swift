@@ -55,7 +55,7 @@ class BoomDetail: UIViewController {
         diameterLbl.text = NSLocalizedString("diameterKroon", comment: "")
         
         
-//Vul de labels met de gegevens van de boom
+        //Vul de labels met de gegevens van de boom
         if boom?.id != nil
         {
             boomIdLbl.text = boom?.id.description

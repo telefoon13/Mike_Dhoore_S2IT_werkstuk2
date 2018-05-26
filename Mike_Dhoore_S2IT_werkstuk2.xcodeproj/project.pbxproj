@@ -11,7 +11,7 @@
 		3F3D161A20B3195600635A0A /* BoomPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3D161920B3195600635A0A /* BoomPin.swift */; };
 		3F840ADB2097375400236A1D /* BoomDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F840ADA2097375400236A1D /* BoomDetail.swift */; };
 		3FD8D81B208CACCB008A7C97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8D81A208CACCB008A7C97 /* AppDelegate.swift */; };
-		3FD8D81D208CACCB008A7C97 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8D81C208CACCB008A7C97 /* ViewController.swift */; };
+		3FD8D81D208CACCB008A7C97 /* AlleBomen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8D81C208CACCB008A7C97 /* AlleBomen.swift */; };
 		3FD8D820208CACCB008A7C97 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD8D81E208CACCB008A7C97 /* Main.storyboard */; };
 		3FD8D823208CACCB008A7C97 /* Mike_Dhoore_S2IT_werkstuk2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3FD8D821208CACCB008A7C97 /* Mike_Dhoore_S2IT_werkstuk2.xcdatamodeld */; };
 		3FD8D825208CACCB008A7C97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD8D824208CACCB008A7C97 /* Assets.xcassets */; };
@@ -25,14 +25,12 @@
 		3F840ADA2097375400236A1D /* BoomDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomDetail.swift; sourceTree = "<group>"; };
 		3FD8D817208CACCB008A7C97 /* Mike_Dhoore_S2IT_werkstuk2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mike_Dhoore_S2IT_werkstuk2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD8D81A208CACCB008A7C97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3FD8D81C208CACCB008A7C97 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3FD8D81C208CACCB008A7C97 /* AlleBomen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlleBomen.swift; sourceTree = "<group>"; };
 		3FD8D81F208CACCB008A7C97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3FD8D822208CACCB008A7C97 /* Mike_Dhoore_S2IT_werkstuk2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mike_Dhoore_S2IT_werkstuk2.xcdatamodel; sourceTree = "<group>"; };
 		3FD8D824208CACCB008A7C97 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FD8D827208CACCB008A7C97 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FD8D829208CACCB008A7C97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3FE34EEF20B99A63000E86C6 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Main.strings; sourceTree = "<group>"; };
-		3FE34EF020B99A63000E86C6 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3FE34EF220B99B3C000E86C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FE34EF420B99B3F000E86C6 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,7 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				3FD8D81A208CACCB008A7C97 /* AppDelegate.swift */,
-				3FD8D81C208CACCB008A7C97 /* ViewController.swift */,
+				3FD8D81C208CACCB008A7C97 /* AlleBomen.swift */,
 				3F3D161920B3195600635A0A /* BoomPin.swift */,
 				3F840ADA2097375400236A1D /* BoomDetail.swift */,
 				3FD8D81E208CACCB008A7C97 /* Main.storyboard */,
@@ -172,7 +170,7 @@
 			files = (
 				3FD8D823208CACCB008A7C97 /* Mike_Dhoore_S2IT_werkstuk2.xcdatamodeld in Sources */,
 				3F3D161A20B3195600635A0A /* BoomPin.swift in Sources */,
-				3FD8D81D208CACCB008A7C97 /* ViewController.swift in Sources */,
+				3FD8D81D208CACCB008A7C97 /* AlleBomen.swift in Sources */,
 				3FD8D81B208CACCB008A7C97 /* AppDelegate.swift in Sources */,
 				3F840ADB2097375400236A1D /* BoomDetail.swift in Sources */,
 			);
@@ -185,7 +183,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				3FD8D81F208CACCB008A7C97 /* Base */,
-				3FE34EEF20B99A63000E86C6 /* nl */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -194,7 +191,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				3FD8D827208CACCB008A7C97 /* Base */,
-				3FE34EF020B99A63000E86C6 /* nl */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
