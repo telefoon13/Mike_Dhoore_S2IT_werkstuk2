@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Mike_Dhoore_S2IT_werkstuk2
+
+  Created by student on 26/05/18.
+  Copyright © 2018 Mike Dhoore. All rights reserved.
+*/
+"alleBomen"="Alle bomen";
+"terug"="Terug";
+"laatstBijgewerkt"="Laatst bijgewerkt op :";
+"herlaadGegevens"="Herlaad gegevens";
+"alert"="Om de API te sparen kan je slechts 1x per minuut herladen";
+"id"="ID :";
+"soort"="Soort :";
+"adres"="Adres :";
+"landschap"="Landschap :";
+"positie"="Positie :";
+"beplanting"="Beplanting :";
+"status"="Status :";
+"omtrek"="Omtrek :";
+"hoogte"="Hoogte :";
+"diameterKroon"="Diameter van de kroon :";
+"detailBoom"="Details van de boom";

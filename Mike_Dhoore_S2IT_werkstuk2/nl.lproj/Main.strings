@@ -1,0 +1,81 @@
+
+/* Class = "UILabel"; text = "diameter"; ObjectID = "15b-cF-KsQ"; */
+"15b-cF-KsQ.text" = "diameter";
+
+/* Class = "UILabel"; text = "Hoogte :"; ObjectID = "3vV-Gd-tL7"; */
+"3vV-Gd-tL7.text" = "Hoogte :";
+
+/* Class = "UILabel"; text = "Laatst bijgewerkt op :"; ObjectID = "4R6-4j-NW2"; */
+"4R6-4j-NW2.text" = "Laatst bijgewerkt op :";
+
+/* Class = "UILabel"; text = "Omtrek :"; ObjectID = "8KK-zf-3EC"; */
+"8KK-zf-3EC.text" = "Omtrek :";
+
+/* Class = "UIBarButtonItem"; title = "Terug"; ObjectID = "DTq-0L-HhZ"; */
+"DTq-0L-HhZ.title" = "Terug";
+
+/* Class = "UIButton"; normalTitle = "Herlaad gegvens"; ObjectID = "FIR-6y-50p"; */
+"FIR-6y-50p.normalTitle" = "Herlaad gegvens";
+
+/* Class = "UILabel"; text = "landschap"; ObjectID = "Fup-LK-5xF"; */
+"Fup-LK-5xF.text" = "landschap";
+
+/* Class = "UILabel"; text = "Adres :"; ObjectID = "FwS-pw-7ed"; */
+"FwS-pw-7ed.text" = "Adres :";
+
+/* Class = "UIBarButtonItem"; title = "Terug"; ObjectID = "GFa-S7-Old"; */
+"GFa-S7-Old.title" = "Terug";
+
+/* Class = "UILabel"; text = "positie"; ObjectID = "GiJ-2H-XTi"; */
+"GiJ-2H-XTi.text" = "positie";
+
+/* Class = "UILabel"; text = "status"; ObjectID = "MKs-Ls-t2x"; */
+"MKs-Ls-t2x.text" = "status";
+
+/* Class = "UILabel"; text = "Soort :"; ObjectID = "Mbg-sY-3bJ"; */
+"Mbg-sY-3bJ.text" = "Soort :";
+
+/* Class = "UINavigationItem"; title = "Alle bomen"; ObjectID = "TBU-dP-Z5p"; */
+"TBU-dP-Z5p.title" = "Alle bomen";
+
+/* Class = "UILabel"; text = "29/04/2018  17:04"; ObjectID = "TuC-df-l87"; */
+"TuC-df-l87.text" = "29/04/2018  17:04";
+
+/* Class = "UILabel"; text = "id"; ObjectID = "cu8-ux-I3X"; */
+"cu8-ux-I3X.text" = "id";
+
+/* Class = "UILabel"; text = "ID :"; ObjectID = "eLE-i2-u8v"; */
+"eLE-i2-u8v.text" = "ID :";
+
+/* Class = "UILabel"; text = "Positie :"; ObjectID = "gC5-df-M87"; */
+"gC5-df-M87.text" = "Positie :";
+
+/* Class = "UILabel"; text = "Diameter van de kroon :"; ObjectID = "hg0-c6-oU0"; */
+"hg0-c6-oU0.text" = "Diameter van de kroon :";
+
+/* Class = "UILabel"; text = "Beplanting :"; ObjectID = "iF6-WA-081"; */
+"iF6-WA-081.text" = "Beplanting :";
+
+/* Class = "UILabel"; text = "Status :"; ObjectID = "nIL-ny-cEf"; */
+"nIL-ny-cEf.text" = "Status :";
+
+/* Class = "UILabel"; text = "omtrek"; ObjectID = "nvN-KK-CBI"; */
+"nvN-KK-CBI.text" = "omtrek";
+
+/* Class = "UILabel"; text = "beplanting"; ObjectID = "oGf-7k-Etn"; */
+"oGf-7k-Etn.text" = "beplanting";
+
+/* Class = "UILabel"; text = "hoogte"; ObjectID = "qOI-W5-dTc"; */
+"qOI-W5-dTc.text" = "hoogte";
+
+/* Class = "UILabel"; text = "straat + gemeente"; ObjectID = "rBi-wT-paA"; */
+"rBi-wT-paA.text" = "straat + gemeente";
+
+/* Class = "UILabel"; text = "Landschap :"; ObjectID = "uaH-Yc-h9q"; */
+"uaH-Yc-h9q.text" = "Landschap :";
+
+/* Class = "UILabel"; text = "soort"; ObjectID = "yVL-ua-H1D"; */
+"yVL-ua-H1D.text" = "soort";
+
+/* Class = "UINavigationItem"; title = "Boom detail"; ObjectID = "z0G-MY-UTv"; */
+"z0G-MY-UTv.title" = "Boom detail";

@@ -24,10 +24,38 @@ class BoomDetail: UIViewController {
     @IBOutlet weak var boomDiameterLbl: UILabel!
     let isLeeg:String = "Onbekend"
     
+    @IBOutlet weak var navBar: UINavigationItem!
+    @IBOutlet weak var idLbl: UILabel!
+    @IBOutlet weak var soortLbl: UILabel!
+    @IBOutlet weak var adresLbl: UILabel!
+    @IBOutlet weak var landschapLbl: UILabel!
+    @IBOutlet weak var positieLbl: UILabel!
+    @IBOutlet weak var beplantingLbl: UILabel!
+    @IBOutlet weak var statusLbl: UILabel!
+    @IBOutlet weak var omtrekLbl: UILabel!
+    @IBOutlet weak var hoogteLbl: UILabel!
+    @IBOutlet weak var diameterLbl: UILabel!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //Vertalingen
+        navBar.title = NSLocalizedString("detailBoom", comment: "")
+        idLbl.text = NSLocalizedString("id", comment: "")
+        soortLbl.text = NSLocalizedString("soort", comment: "")
+        adresLbl.text = NSLocalizedString("adres", comment: "")
+        landschapLbl.text = NSLocalizedString("landschap", comment: "")
+        positieLbl.text = NSLocalizedString("positie", comment: "")
+        beplantingLbl.text = NSLocalizedString("beplanting", comment: "")
+        statusLbl.text = NSLocalizedString("status", comment: "")
+        omtrekLbl.text = NSLocalizedString("omtrek", comment: "")
+        hoogteLbl.text = NSLocalizedString("hoogte", comment: "")
+        diameterLbl.text = NSLocalizedString("diameterKroon", comment: "")
+        
+        
+//Vul de labels met de gegevens van de boom
         if boom?.id != nil
         {
             boomIdLbl.text = boom?.id.description

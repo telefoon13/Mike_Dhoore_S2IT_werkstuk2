@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Mike_Dhoore_S2IT_werkstuk2
+
+  Created by student on 26/05/18.
+  Copyright © 2018 Mike Dhoore. All rights reserved.
+*/
+"alleBomen"="All trees";
+"terug"="Back";
+"laatstBijgewerkt"="Last refresh on :";
+"herlaadGegevens"="Refresh data";
+"alert"="To spare the API you can only refresh once a minute";
+"id"="ID :";
+"soort"="Kind :";
+"adres"="Adresse :";
+"landschap"="Landscape :";
+"positie"="Position :";
+"beplanting"="Planting :";
+"status"="Status :";
+"omtrek"="Circumference :";
+"hoogte"="Hight :";
+"diameterKroon"="Diameter of the crown :";
+"detailBoom"="Details from the tree";

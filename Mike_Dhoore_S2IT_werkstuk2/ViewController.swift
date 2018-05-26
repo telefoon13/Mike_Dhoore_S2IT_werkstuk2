@@ -26,6 +26,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var map: MKMapView!
     //Last refresh label
     @IBOutlet weak var label: UILabel!
+    //Navigatie Bar
+    @IBOutlet weak var navBar: UINavigationItem!
+    //Tekst label "laats bijgewerkt"
+    @IBOutlet weak var txtLastLbl: UILabel!
     //Last time refreshed
     var lastRefresh:Date?
     //Refresh button
@@ -40,7 +44,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             //popup tonen
             //Bron : https://stackoverflow.com/questions/24022479/how-would-i-create-a-uialertview-in-swift
             // create the alert
-            let alert = UIAlertController(title: "Herlaad alert", message: "Om de API te sparen kan je slechts 1x per minuut herladen", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: NSLocalizedString("herlaadGegevens", comment: ""), message: NSLocalizedString("alert", comment: ""), preferredStyle: UIAlertControllerStyle.alert)
             
             // add an action (button)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -59,6 +63,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         super.viewDidLoad()
         
         self.map.delegate = self
+        
+        //Navigatiebar invullen
+        navBar.title = NSLocalizedString("alleBomen", comment: "")
+        //bron : https://stackoverflow.com/questions/28471164/how-to-set-back-button-text-in-swift
+        let backItem = UIBarButtonItem()
+        backItem.title = NSLocalizedString("terug", comment: "")
+        navBar.backBarButtonItem = backItem
+        //Laatsbijgewerkt lbl
+        txtLastLbl.text = NSLocalizedString("laatstBijgewerkt", comment: "")
+        //Knop vertaling
+        reloadButton.setTitle(NSLocalizedString("herlaadGegevens", comment: ""), for: .normal)
         
         //Set map and location
         //Bron : https://www.youtube.com/watch?v=UyiuX8jULF4
