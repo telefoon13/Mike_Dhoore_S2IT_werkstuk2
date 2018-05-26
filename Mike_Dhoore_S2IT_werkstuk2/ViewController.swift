@@ -29,16 +29,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     //Last time refreshed
     var lastRefresh:Date?
     //Refresh button
+    @IBOutlet weak var reloadButton: UIButton!
+    //Refresh button action
     @IBAction func button(_ sender: Any) {
         //Bron : https://stackoverflow.com/questions/39018335/swift-3-comparing-date-objects
-        //let nuMin = Date().addingTimeInterval(-60)
-        //if (lastRefresh! < nuMin){
+        let nuMin = Date().addingTimeInterval(-60)
+        if (lastRefresh! < nuMin){
             refresh()
-        //} else {
+        } else {
             //popup tonen
-        //}
-        
-        //print("op knop geduwd")
+            //Bron : https://stackoverflow.com/questions/24022479/how-would-i-create-a-uialertview-in-swift
+            // create the alert
+            let alert = UIAlertController(title: "Refresh alert", message: "For load issuses you can only refresh the tree's once a minute.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     //Location manager
     let manager = CLLocationManager()
@@ -99,6 +108,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     //Get the data from JSON and put in core data
     func getJSONtoCore() {
+        
+        //Disable refresh button
+        self.reloadButton.isEnabled = false
         
         //First clear the prevous data
         clearData()
@@ -164,8 +176,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                     }
                 }
             }
-            //Show the data
-            self.show()
+            DispatchQueue.main.async {
+                //Show the data
+                self.show()
+            }
         }
         task.resume()
     }
@@ -213,12 +227,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                             //Bron :https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree
                             anno1.image = "BoomPin"
                             
-                            //Add anno on map
-                            self.map.addAnnotation(anno1)
+                            DispatchQueue.main.async {
+                                //Add anno on map
+                                self.map.addAnnotation(anno1)
+                            }
                         }
                     })
                 }
-                
+                self.reloadButton.isEnabled = true
             }
         } catch {
             fatalError("Failed to fetch : \(error)")

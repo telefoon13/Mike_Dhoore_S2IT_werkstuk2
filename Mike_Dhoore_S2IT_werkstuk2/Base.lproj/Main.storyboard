@@ -75,6 +75,7 @@
                     <connections>
                         <outlet property="label" destination="TuC-df-l87" id="XKm-u6-dUp"/>
                         <outlet property="map" destination="4QL-Lr-7gK" id="1d6-wS-GVL"/>
+                        <outlet property="reloadButton" destination="FIR-6y-50p" id="zuK-Pp-anI"/>
                         <segue destination="k4y-1I-IEb" kind="show" identifier="toDetail" id="Zn1-xM-7jw"/>
                     </connections>
                 </viewController>
