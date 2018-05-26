@@ -40,7 +40,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             //popup tonen
             //Bron : https://stackoverflow.com/questions/24022479/how-would-i-create-a-uialertview-in-swift
             // create the alert
-            let alert = UIAlertController(title: "Refresh alert", message: "For load issuses you can only refresh the tree's once a minute.", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Herlaad alert", message: "Om de API te sparen kan je slechts 1x per minuut herladen", preferredStyle: UIAlertControllerStyle.alert)
             
             // add an action (button)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
@@ -164,7 +164,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                                     boom.straat = (fields["straat"] as? String)
                                     boom.landschap = (fields["landschap"] as? String)
                                     
-                                    self.appDelegate.saveContext()
+                                    if boom.straat != nil && boom.gemeente != nil{
+                                        self.appDelegate.saveContext()
+                                    }
+                                    
                                 }
                                 
                             }
@@ -202,7 +205,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 print(elkeBoom.status)
                 print(elkeBoom.straat)
                 print("------------------------")*/
-                if elkeBoom.straat != nil {
+                if elkeBoom.straat != nil && elkeBoom.gemeente != nil {
                     //Convert adress to location
                     //Source :https://stackoverflow.com/questions/42279252/convert-address-to-coordinates-swift
                     let geocoder = CLGeocoder()
